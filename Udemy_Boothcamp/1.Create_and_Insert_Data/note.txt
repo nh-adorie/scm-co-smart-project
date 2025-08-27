@@ -27,5 +27,15 @@ Khi sử dụng trên giao diện MySQL Workbench, thông tin này được hi�
 
 - DROP TABLE <table_name>;
 
+- INSERT INTO <table_name>(attr) VALUES(value);
+
+- SELECT * FROM <table_name>;
+
+* Phân loại câu lệnh trong SQL:
+- DDL (Data Definition Language): định nghĩa cấu trúc dữ liệu → CREATE, ALTER, DROP, TRUNCATE…
+- DML (Data Manipulation Language): thao tác với dữ liệu bên trong bảng → INSERT, UPDATE, DELETE…
+- DQL (Data Query Language): truy vấn dữ liệu → SELECT 
+- DCL (Data Control Language): phân quyền, quản lý user → GRANT, REVOKE… 
+
 
 

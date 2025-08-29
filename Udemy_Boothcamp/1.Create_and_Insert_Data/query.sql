@@ -5,10 +5,10 @@ CREATE TABLE IF NOT EXISTS info(
     last_name VARCHAR(100),
     age INT
 );
--- INSERT INTO info (first_name, last_name, age)
--- VALUES
---     ("adorie", "kitty", 10),
---     ("cinamon","cake",7);
+INSERT INTO info (first_name, last_name, age)
+VALUES
+    ("adorie", "kitty", 10),
+    ("cinamon","cake",7);
 
 CREATE DATABASE IF NOT EXISTS pet_shop;
 USE pet_shop;
@@ -18,13 +18,13 @@ CREATE TABLE IF NOT EXISTS cats(
     age INT
 );
 
--- INSERT INTO cats(name, breed, age)
--- VALUES 
---     ("cinamon", "cake", 5);
+INSERT INTO cats(name, breed, age)
+VALUES 
+    ("cinamon", "cake", 5);
 
 -- insert null value :D ?
--- INSERT INTO cats(name)
--- VALUES("cinamon");
+INSERT INTO cats(name)
+VALUES("cinamon");
 
 -- Thêm NOT NULL vào rồi thì không thể insert null value vào nữa, sẽ báo lỗi
 -- Khi DESC cats_test thì cột NULL sẽ hiển thị thành NO
@@ -34,11 +34,11 @@ CREATE TABLE IF NOT EXISTS cats_test
     age INT NOT NULL
     );
 
--- INSERT INTO cats_test (name)
--- VALUES ("hello");
+INSERT INTO cats_test (name)
+VALUES ("hello");
 
--- INSERT INTO cats_test (name, age)
--- VALUES ("anna's cat", 10);
+INSERT INTO cats_test (name, age)
+VALUES ("anna's cat", 10);
 
 
 -- Thêm DEFAULT vào thì sẽ setup được giá trị mặc định nếu không điền gì
@@ -48,11 +48,11 @@ CREATE TABLE IF NOT EXISTS cats3
     age INT DEFAULT 99
     );
 
--- INSERT INTO cats3 (name)
--- VALUES ('new cat');
+INSERT INTO cats3 (name)
+VALUES ('new cat');
 
--- INSERT INTO cats3 ()
--- VALUES();
+INSERT INTO cats3 ()
+VALUES();
 
 -- CÓ thể kết hợp cả NOT NULL và DEFAULT
 CREATE TABLE IF NOT EXISTS cats4  (    
@@ -82,11 +82,11 @@ CREATE TABLE IF NOT EXISTS auto_cats(
     PRIMARY KEY (catID)
 );
 
--- INSERT INTO auto_cats(name)
--- VALUES
---     ("kitty"),
---     ("happy"),
---     ("adorie");
+INSERT INTO auto_cats(name)
+VALUES
+    ("kitty"),
+    ("happy"),
+    ("adorie");
 
 CREATE DATABASE IF NOT EXISTS final_excercise;
 USE final_excercise;

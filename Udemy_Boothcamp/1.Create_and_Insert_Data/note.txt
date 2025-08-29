@@ -38,4 +38,4 @@ Khi sử dụng trên giao diện MySQL Workbench, thông tin này được hi�
 - DCL (Data Control Language): phân quyền, quản lý user → GRANT, REVOKE… 
 
 
-
+- ADD-ONS: NOT NULL, DEFAULT, PRIMARY KEY, AUTO_INCREMENT

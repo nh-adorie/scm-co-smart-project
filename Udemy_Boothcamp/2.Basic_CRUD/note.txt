@@ -1,1 +1,4 @@
 CRUD: Create - Read - Update - Delete
+
+- SELECT <column_name>, <column_name2> from <table_name>;
+- SELECT... FROM... WHERE...

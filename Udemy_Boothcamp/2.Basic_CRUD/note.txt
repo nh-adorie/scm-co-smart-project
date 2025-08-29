@@ -2,3 +2,8 @@ CRUD: Create - Read - Update - Delete
 
 - SELECT <column_name>, <column_name2> from <table_name>;
 - SELECT... FROM... WHERE...
+- UPDATE <table_name> SET <column_name> = new_value WHERE ...  // cái này hoạt động như insert values
+
+* A Good Rule: Try SELECTing before you UPDATE
+
+- DELETE FROM ... WHERE ...

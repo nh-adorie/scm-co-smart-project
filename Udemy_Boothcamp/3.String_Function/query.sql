@@ -76,7 +76,7 @@ FROM books;
 
 SELECT UPPER(
     CONCAT_WS(' ',author_fname,author_lname) 
-) AS 'full name in caps'
+) AS `full name in caps`
 FROM books;
 
 SELECT CONCAT_WS(

@@ -90,3 +90,17 @@ CASE
     ELSE 'Novel'
 END AS type
 FROM books;
+
+-- Count total books
+SELECT 
+    author_fname,
+    author_lname,
+    CONCAT(
+        COUNT(*),
+        CASE 
+            WHEN COUNT(*) = 1 THEN ' book'
+            ELSE ' books'
+        END 
+    ) AS 'COUNT'
+FROM books 
+GROUP BY author_fname, author_lname;

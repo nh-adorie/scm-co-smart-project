@@ -35,3 +35,30 @@ SELECT
     MIN(salary) OVER(PARTITION BY department),
     MAX(salary) OVER(PARTITION BY department) 
 FROM employees;
+
+SELECT 
+    emp_no, 
+    department, 
+    salary, 
+    AVG(salary) OVER(PARTITION BY department) AS department_avg,
+    AVG(salary) OVER() AS company_avg
+FROM employees;
+
+SELECT
+    department,
+    COUNT(*) OVER(PARTITION BY department) AS total_department_employees,
+    COUNT(*) OVER() AS total_company_employees
+FROM employees;
+
+SELECT 
+    emp_no,
+    department,
+    salary,
+    SUM(salary) OVER(PARTITION BY department) AS department_payroll,
+    SUM(salary) OVER() AS company_payroll
+FROM employees;
+
+SELECT 
+    emp_no,
+    CONCAT(ROUND(salary / SUM(salary) OVER(PARTITION BY department) * 100,2),"%") AS 'salary percentage'
+FROM employees;

@@ -14,3 +14,19 @@ CREATE TABLE orders (
         REFERENCES customers (id)
         ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS students(
+    id INT AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS papers(
+    title VARCHAR(100),
+    grade INT,
+    student_id INT,
+    PRIMARY KEY (title),
+    FOREIGN KEY (student_id)
+        REFERENCES students(id)
+        ON DELETE CASCADE
+);

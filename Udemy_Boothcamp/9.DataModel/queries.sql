@@ -96,7 +96,3 @@ FROM students AS s
 LEFT JOIN papers AS p ON s.id = p.student_id
 GROUP BY s.first_name
 ORDER BY average DESC;
-
-
-
-

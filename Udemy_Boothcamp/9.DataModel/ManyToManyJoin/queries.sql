@@ -22,8 +22,9 @@ SELECT
 FROM reviews
 JOIN reviewers ON reviews.reviewer_id = reviewers.id;
 
--- #4 CHALLENGE
+-- #4 CHALLENGE: HOW TO GET ROWS THAT DO NOT JOIN
 SELECT 
     series.title AS unreviewed_series
 FROM series
-LEFT JOIN reviews ON reviews.series_id = series.id;
+LEFT JOIN reviews ON reviews.series_id = series.id
+WHERE reviews.series_id IS NULL;

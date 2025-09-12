@@ -57,4 +57,46 @@ FROM
         RIGHT JOIN
     orders ON customers.id = orders.customer_id;
 
+-- Exercise
+
+SELECT first_name, title, grade 
+FROM papers
+JOIN students ON papers.student_id = students.id
+ORDER BY grade DESC;
+
+SELECT students.first_name, papers.title, papers.grade 
+FROM papers
+JOIN students ON papers.student_id = students.id
+ORDER BY papers.grade DESC;
+
+SELECT s.first_name, p.title, p.grade
+FROM papers p
+JOIN students s ON p.student_id = s.id
+ORDER BY p.grade DESC;
+
+SELECT s.first_name, p.title, p.grade
+FROM students AS s
+LEFT JOIN papers AS p ON p.student_id = s.id;
+
+SELECT 
+    s.first_name,
+    IFNULL(p.title, 'MISSING'),
+    IFNULL(p.grade, 0)
+FROM students AS s
+LEFT JOIN papers AS p ON p.student_id = s.id;
+
+SELECT 
+    s.first_name,
+    IFNULL(AVG(p.grade), 0) AS average,
+    CASE 
+        WHEN IFNULL(AVG(p.grade), 0) > 80 THEN 'PASSING'
+        ELSE 'FAILING'
+    END AS passing_status
+FROM students AS s
+LEFT JOIN papers AS p ON s.id = p.student_id
+GROUP BY s.first_name
+ORDER BY average DESC;
+
+
+
 

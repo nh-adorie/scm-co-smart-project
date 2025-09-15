@@ -62,3 +62,33 @@ SELECT
     emp_no,
     CONCAT(ROUND(salary / SUM(salary) OVER(PARTITION BY department) * 100,2),"%") AS 'salary percentage'
 FROM employees;
+
+-- ORDER BY
+-- inside the OVER() clause
+-- to re-order rows within each window
+
+SELECT 
+    emp_no,
+    department,
+    salary,
+    SUM(salary) OVER(PARTITION BY department) AS total_dept_salary,
+    SUM(salary) OVER(PARTITION BY department ORDER BY salary DESC) AS rolling_dept_salary
+FROM employees;
+
+SELECT 
+    emp_no,
+    department,
+    salary,
+    MIN(salary) OVER(PARTITION BY department ORDER BY salary DESC) as rolling_min
+FROM employees;
+
+-- RANK()
+-- rank of current row within its partition
+
+SELECT 
+    emp_no,
+    department,
+    salary,
+    RANK() OVER(ORDER BY salary DESC) as overall_salary_rank,
+    RANK() OVER(PARTITION BY department ORDER BY salary DESC) as dept_salary_rank
+FROM employees;

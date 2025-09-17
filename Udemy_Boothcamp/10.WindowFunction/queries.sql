@@ -63,7 +63,7 @@ SELECT
     CONCAT(ROUND(salary / SUM(salary) OVER(PARTITION BY department) * 100,2),"%") AS 'salary percentage'
 FROM employees;
 
--- ORDER BY
+-- ORDER BY()
 -- inside the OVER() clause
 -- to re-order rows within each window
 
@@ -92,3 +92,48 @@ SELECT
     RANK() OVER(ORDER BY salary DESC) as overall_salary_rank,
     RANK() OVER(PARTITION BY department ORDER BY salary DESC) as dept_salary_rank
 FROM employees;
+
+-- DENSE_RANK() & ROW_NUMBER()
+SELECT 
+    emp_no,
+    department,
+    salary,
+    RANK() OVER(ORDER BY salary DESC) AS salary_rank,
+    ROW_NUMBER() OVER(ORDER BY salary DESC) AS row_num,
+    DENSE_RANK() OVER(ORDER BY salary DESC) AS dense
+FROM employees
+WHERE department = "sales";
+
+-- NTILE()
+SELECT 
+    emp_no,
+    department,
+    salary,
+    NTILE(2) OVER(ORDER BY salary DESC) AS salary_half,
+    NTILE(4) OVER(ORDER BY salary DESC) AS salary_quartile
+FROM employees;
+
+-- FIRST_VALUE()
+SELECT 
+    emp_no,
+    department,
+    salary,
+    FIRST_VALUE(emp_no) OVER(ORDER BY salary DESC) as highest_paid_overall,
+    FIRST_VALUE(emp_no) OVER(PARTITION BY department ORDER BY salary DESC) as highest_paid_dept
+FROM employees;
+
+-- LEAD & LAG
+SELECT 
+    emp_no,
+    department,
+    salary,
+    salary - LAG(salary) OVER(ORDER BY salary DESC) AS salary_diff
+FROM employees;
+
+SELECT 
+    emp_no,
+    department,
+    salary,
+    salary - LEAD(salary) OVER(ORDER BY salary DESC) AS salary_diff
+FROM employees;
+

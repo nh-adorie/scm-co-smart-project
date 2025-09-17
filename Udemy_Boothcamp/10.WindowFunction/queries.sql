@@ -136,4 +136,3 @@ SELECT
     salary,
     salary - LEAD(salary) OVER(ORDER BY salary DESC) AS salary_diff
 FROM employees;
-

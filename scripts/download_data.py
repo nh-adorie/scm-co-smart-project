@@ -10,3 +10,4 @@ print("Path to dataset files:", path)
 ## cp /home/gitpod/.cache/kagglehub/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis/versions/1/* /workspace/learning_sql/DataCo_SMART_SCP/data/raw/
 
 ## cp [printed path]* [my path]
+## Sau đường dẫn thứ nhất phải viết liền, không được có dấu cách

@@ -1,7 +1,0 @@
-image:
-  file: gitpod-setup/.gitpod.Dockerfile
-
-tasks:
-  - name: Setup MySQL
-    init: bash gitpod-setup/setup.sh
-    command: mysql -uroot
